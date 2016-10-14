@@ -1,0 +1,45 @@
+// Rem output with px fallback
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+// breakpoints
+@mixin bp-large {
+    @media only screen and (max-width: 1080px) {
+        @content;
+    }
+}
+@mixin bp-medium {
+    @media only screen and (max-width: 960px) {
+        @content;
+    }
+}
+@mixin bp-small {
+    @media only screen and (max-width: 800px) {
+        @content;
+    }
+}
+@mixin bp-xsmall {
+    @media only screen and (max-width: 400px) {
+        @content;
+    }
+}
+@mixin bp-height {
+    @media only screen and (max-height: 750px) {
+        @content;
+    }
+}
+
+
+@mixin bp-bugfix {
+    @media only screen and (min-width:801px) {
+        @content;
+    }
+}
